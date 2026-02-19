@@ -1,7 +1,5 @@
 {
   "name": "Nexus Home",
   "description": "A comprehensive self-hosted style home dashboard featuring smart device controls, chores, shopping lists, and AI-powered automation insights.",
-  "requestFramePermissions": [
-    "microphone"
-  ]
+  "requestFramePermissions": []
 }
