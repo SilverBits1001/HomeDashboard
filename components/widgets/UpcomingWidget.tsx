@@ -17,7 +17,7 @@ export const UpcomingWidget: React.FC = () => {
 
        {nextEvent ? (
            <div className="flex-1 flex flex-col justify-center">
-               <div className="flex items-center gap-2 text-xs font-mono font-bold text-gray-500 mb-1">
+               <div className="flex items-center gap-2 text-xs font-mono font-bold text-black mb-1">
                     <Clock size={12} />
                     <span>{nextEvent.startTime} - {nextEvent.endTime}</span>
                     {nextEvent.isCurrent && <span className="bg-black text-white px-1 ml-auto">NOW</span>}
@@ -27,12 +27,12 @@ export const UpcomingWidget: React.FC = () => {
                </div>
            </div>
        ) : (
-           <div className="flex-1 flex items-center justify-center text-gray-400 font-mono text-sm">
+           <div className="flex-1 flex items-center justify-center text-black font-mono text-sm border-2 border-dashed border-black m-2">
                No upcoming events
            </div>
        )}
        
-       <div className="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+       <div className="absolute bottom-2 right-2">
            <ArrowRight size={16} />
        </div>
     </div>

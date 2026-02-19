@@ -54,7 +54,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeV
         <div className="hidden md:flex absolute bottom-6">
             <button 
                 onClick={() => setScreensaver(true)}
-                className="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors text-gray-400 hover:text-black"
+                className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-transparent active:border-black active:bg-black active:text-white text-black"
                 title="Sleep Mode"
             >
                 <Moon size={24} />
@@ -74,10 +74,10 @@ export const Layout: React.FC<LayoutProps> = ({ children, currentView, onChangeV
 const NavButton: React.FC<{ active: boolean; onClick: () => void; icon: React.ReactNode; label: string }> = ({ active, onClick, icon, label }) => (
     <button 
         onClick={onClick}
-        className={`relative p-4 md:p-4 rounded-xl transition-all duration-200 group flex flex-col items-center gap-1 border-2
+        className={`relative p-4 md:p-4 rounded-xl group flex flex-col items-center gap-1 border-2
             ${active 
                 ? 'bg-black text-white border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] translate-x-[-2px] translate-y-[-2px]' 
-                : 'bg-white text-black border-transparent hover:border-black'}`}
+                : 'bg-white text-black border-transparent active:border-black'}`}
     >
         <div className="relative z-10">{icon}</div>
         <span className={`text-[10px] font-bold tracking-widest ${active ? 'text-white' : 'text-black'}`}>{label}</span>

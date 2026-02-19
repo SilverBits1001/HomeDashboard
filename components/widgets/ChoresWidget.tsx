@@ -32,11 +32,11 @@ export const ChoresWidget: React.FC = () => {
                                 : <Square size={20} className="text-black" strokeWidth={2.5} />}
                         </div>
                         
-                        <div className="flex-1 min-w-0 border-b border-gray-200 pb-1 group-last:border-0">
-                            <div className={`font-bold text-sm truncate ${chore.completed ? 'line-through opacity-40' : ''}`}>
+                        <div className="flex-1 min-w-0 border-b border-black pb-1 group-last:border-0">
+                            <div className={`font-bold text-sm truncate ${chore.completed ? 'line-through decoration-2' : ''}`}>
                                 {chore.title}
                             </div>
-                            <div className="text-[10px] font-mono uppercase text-gray-600">
+                            <div className="text-[10px] font-mono uppercase text-black">
                                 {chore.assignee}
                             </div>
                         </div>

@@ -33,13 +33,13 @@ export const ShoppingWidget: React.FC = () => {
                     onClick={() => toggleShoppingItem(item.id)}
                     className={`w-full flex items-center justify-between p-2 border-2 rounded-lg transition-all
                         ${item.checked 
-                            ? 'border-gray-300 text-gray-400 bg-gray-50' 
-                            : 'border-black text-black bg-white hover:bg-black hover:text-white'}`}
+                            ? 'border-black border-dashed bg-white text-black' 
+                            : 'border-black text-black bg-white active:bg-black active:text-white'}`}
                 >
                     <span className={`text-lg font-bold ${item.checked ? 'line-through decoration-2' : ''}`}>
                         {item.name}
                     </span>
-                    <div className={`w-5 h-5 border-2 flex items-center justify-center ${item.checked ? 'border-gray-400' : 'border-current'}`}>
+                    <div className={`w-5 h-5 border-2 flex items-center justify-center border-black`}>
                         {item.checked && <X size={16} />}
                     </div>
                 </button>
@@ -50,11 +50,11 @@ export const ShoppingWidget: React.FC = () => {
             <input 
                 type="text" 
                 placeholder="ADD ITEM..." 
-                className="flex-1 bg-white border-2 border-black rounded-lg py-2 px-3 text-sm font-bold placeholder-gray-500 focus:outline-none focus:bg-gray-50 uppercase"
+                className="flex-1 bg-white border-2 border-black rounded-lg py-2 px-3 text-sm font-bold placeholder-black/50 focus:outline-none focus:ring-2 focus:ring-black uppercase"
                 value={newValue}
                 onChange={e => setNewValue(e.target.value)}
             />
-            <button type="submit" className="bg-black text-white p-2 rounded-lg hover:bg-gray-800 transition-colors">
+            <button type="submit" className="bg-black text-white p-2 rounded-lg border-2 border-black hover:bg-white hover:text-black transition-colors">
                 <Plus size={20} />
             </button>
        </form>

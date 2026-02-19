@@ -70,23 +70,23 @@ export const Assistant: React.FC = () => {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 p-4 bg-black text-white rounded-full shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] border-2 border-white md:border-black md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:scale-105 transition-transform z-50"
+        className="fixed bottom-6 right-6 p-4 bg-black text-white rounded-full shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] border-2 border-white md:border-black md:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] z-50"
       >
         <Sparkles size={24} />
       </button>
 
-      {/* Modal Overlay */}
+      {/* Modal Overlay - Solid white background instead of blur for Kindle performance */}
       {isOpen && (
-        <div className="fixed inset-0 bg-white/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-white z-50 flex items-center justify-center p-4">
           <div className="bg-white border-2 border-black rounded-2xl w-full max-w-lg shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden relative">
             
             {/* Header */}
-            <div className="p-4 border-b-2 border-black flex justify-between items-center bg-gray-50">
+            <div className="p-4 border-b-2 border-black flex justify-between items-center bg-white">
               <div className="flex items-center gap-2">
                 <Sparkles size={20} className="text-black fill-black" />
                 <span className="font-black text-lg uppercase">Nexus AI</span>
               </div>
-              <button onClick={() => setIsOpen(false)} className="text-black hover:bg-black hover:text-white rounded-md p-1 transition-colors">
+              <button onClick={() => setIsOpen(false)} className="text-black hover:bg-black hover:text-white rounded-md p-1 border border-transparent hover:border-black">
                 <X size={24} />
               </button>
             </div>
@@ -104,7 +104,7 @@ export const Assistant: React.FC = () => {
                   ref={inputRef}
                   type="text"
                   placeholder="TYPE COMMAND..."
-                  className="w-full bg-white border-2 border-black rounded-xl py-4 pl-4 pr-12 text-black font-bold focus:outline-none focus:ring-2 focus:ring-black transition-all uppercase placeholder-gray-400"
+                  className="w-full bg-white border-2 border-black rounded-xl py-4 pl-4 pr-12 text-black font-bold focus:outline-none focus:ring-4 focus:ring-black/20 uppercase placeholder-black/40"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
@@ -113,9 +113,9 @@ export const Assistant: React.FC = () => {
                 <button 
                   onClick={handleCommand}
                   disabled={isProcessing || !input.trim()}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:scale-110 disabled:opacity-30 transition-transform"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-black disabled:opacity-30"
                 >
-                  {isProcessing ? <div className="w-5 h-5 border-4 border-black border-t-transparent rounded-full animate-spin" /> : <Send size={24} strokeWidth={2.5} />}
+                  {isProcessing ? <div className="font-mono text-xs font-bold animate-none">...</div> : <Send size={24} strokeWidth={2.5} />}
                 </button>
               </div>
 
@@ -125,7 +125,7 @@ export const Assistant: React.FC = () => {
                   <button 
                     key={hint}
                     onClick={() => setInput(hint)}
-                    className="text-xs border border-black px-2 py-1 rounded-md hover:bg-black hover:text-white transition-colors font-mono uppercase"
+                    className="text-xs border border-black px-2 py-1 rounded-md hover:bg-black hover:text-white font-mono uppercase"
                   >
                     {hint}
                   </button>

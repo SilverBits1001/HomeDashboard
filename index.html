@@ -16,11 +16,9 @@
               mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-              // E-ink palette: strictly black and white
               ink: {
                 black: '#000000',
                 white: '#ffffff',
-                gray: '#a3a3a3', // Use sparingly for disabled states
               }
             }
           },
@@ -31,12 +29,14 @@
       body {
         background-color: #ffffff;
         color: #000000;
-        overflow: hidden; /* Prevent global scroll */
+        overflow: hidden;
         /* CRITICAL FOR KINDLE: Disable text selection to prevent Dictionary popup */
         user-select: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
+        /* Remove 300ms tap delay on older touch browsers */
+        touch-action: manipulation;
       }
       /* Hide Scrollbars entirely for cleaner e-ink look */
       ::-webkit-scrollbar {
@@ -45,17 +45,27 @@
       * {
         -webkit-tap-highlight-color: transparent;
       }
+      
+      /* 
+       * KINDLE OPTIMIZATION: 
+       * Disable all animations/transitions. 
+       * Snap-changes are essential for E-ink.
+       */
+      *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+      }
     </style>
 <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
     "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
     "lucide-react": "https://esm.sh/lucide-react@^0.574.0",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
-    "vite": "https://esm.sh/vite@^7.3.1"
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4"
   }
 }
 </script>

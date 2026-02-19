@@ -19,10 +19,10 @@ export const CalendarWidget: React.FC = () => {
                 className={`flex items-stretch border-2 border-black rounded-lg overflow-hidden ${event.isCurrent ? 'shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]' : ''}`}
                >
                    <div className={`w-24 p-3 flex flex-col justify-center items-center text-xs font-mono font-bold border-r-2 border-black
-                        ${event.isCurrent ? 'bg-black text-white' : 'bg-gray-100 text-black'}`}>
+                        ${event.isCurrent ? 'bg-black text-white' : 'bg-white text-black'}`}>
                        <span>{event.startTime}</span>
-                       <div className="w-1 h-1 bg-current rounded-full my-1 opacity-50" />
-                       <span className="opacity-70">{event.endTime}</span>
+                       <div className="w-1 h-1 bg-current rounded-full my-1" />
+                       <span className="opacity-100">{event.endTime}</span>
                    </div>
                    <div className="flex-1 p-3 flex items-center bg-white">
                        <span className={`font-bold text-lg leading-tight ${event.isCurrent ? 'underline decoration-2 underline-offset-4' : ''}`}>
@@ -32,7 +32,7 @@ export const CalendarWidget: React.FC = () => {
                </div>
            ))}
            {events.length === 0 && (
-               <div className="text-center italic text-gray-500 mt-10">No events scheduled today.</div>
+               <div className="text-center italic text-black mt-10">No events scheduled today.</div>
            )}
        </div>
     </div>

@@ -22,7 +22,7 @@ export const WeatherWidget: React.FC = () => {
         <div>
             <div className="flex justify-between items-start">
                 <h3 className="font-black uppercase tracking-wider text-lg border-b-2 border-black">Outside</h3>
-                <div className="text-xs font-mono border border-black px-1 animate-pulse">LIVE</div>
+                <div className="text-xs font-mono border border-black px-1 font-bold">LIVE</div>
             </div>
 
             {/* Main Temp */}
@@ -47,9 +47,9 @@ export const WeatherWidget: React.FC = () => {
 
         {/* Forecast List */}
         <div className="space-y-3">
-            <div className="text-xs font-bold uppercase text-gray-400">Forecast</div>
+            <div className="text-xs font-bold uppercase text-black border-b border-black inline-block">Forecast</div>
             {weather.forecast.map((day, idx) => (
-                <div key={idx} className="flex items-center justify-between border-b border-gray-100 pb-2 last:border-0">
+                <div key={idx} className="flex items-center justify-between border-b border-black pb-2 last:border-0">
                     <span className="font-mono font-bold w-12">{day.day}</span>
                     <div className="flex items-center gap-2">
                          {getWeatherIcon(weather.condition === 'Sunny' ? 'Sunny' : 'Cloudy', 16)}
